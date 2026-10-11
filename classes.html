@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor Sutton | Student Portfolio</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --ink: #f3efff;
+            --muted: #b8b0ca;
+            --accent: #b89aff;
+            --accent-light: #302546;
+            --paper: #17151d;
+            --line: #393342;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 0 1.25rem;
+            background: #0d0c10;
+            color: var(--ink);
+            font: 1rem/1.7 system-ui, -apple-system, "Segoe UI", sans-serif;
+        }
+
+        .page-width {
+            width: min(100%, 900px);
+            margin-inline: auto;
+        }
+
+        header {
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .brand { font-weight: 750; letter-spacing: -0.03em; }
+
+        nav { display: flex; gap: 1.25rem; }
+
+        a { color: var(--accent); }
+
+        nav a {
+            color: var(--muted);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        nav a:hover, nav a:focus { color: var(--accent); text-decoration: underline; }
+
+        .hero {
+            padding: clamp(3rem, 8vw, 5.5rem) 0 3rem;
+        }
+
+        .eyebrow {
+            margin: 0 0 0.5rem;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 750;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            max-width: 700px;
+            margin: 0;
+            font-size: clamp(2.4rem, 7vw, 4.5rem);
+            line-height: 1.1;
+            letter-spacing: -0.055em;
+        }
+
+        .intro {
+            max-width: 620px;
+            margin: 1.25rem 0 0;
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+
+        main { padding-bottom: 3rem; }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        section {
+            margin: 0 0 1rem;
+            padding: 1.5rem;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: var(--paper);
+            box-shadow: 0 8px 24px #2330470b;
+        }
+
+        h2 { margin: 0 0 0.55rem; font-size: 1.25rem; }
+
+        p { margin: 0; color: var(--muted); }
+
+        .wide { grid-column: 1 / -1; }
+
+        .tagline {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.35rem 0.7rem;
+            border-radius: 999px;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 650;
+        }
+
+        ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+            gap: 0.65rem;
+            margin: 1rem 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            padding: 0.65rem 0.8rem;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #201d27;
+        }
+
+        #contact p + p { margin-top: 0.35rem; }
+
+        form {
+            display: grid;
+            gap: 0.45rem;
+            margin-top: 1.25rem;
+        }
+
+        label {
+            margin-top: 0.4rem;
+            color: var(--ink);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.8rem 0.9rem;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #201d27;
+            color: var(--ink);
+            font: inherit;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: 2px solid transparent;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px #b89aff33;
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        button {
+            justify-self: start;
+            margin-top: 0.6rem;
+            padding: 0.8rem 1.4rem;
+            border: none;
+            border-radius: 8px;
+            background: var(--accent);
+            color: white;
+            font: 700 0.95rem/1 system-ui, sans-serif;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        button:hover {
+            background: #9e7ce8;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px #b89aff33;
+        }
+
+        footer {
+            padding: 1.25rem 0 2rem;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .topbar { align-items: flex-start; flex-direction: column; }
+            nav { gap: 1rem; }
+            .content-grid { grid-template-columns: 1fr; }
+            .wide { grid-column: auto; }
+            section { padding: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="page-width topbar">
+            <div class="brand">Cursor Sutton</div>
+            <nav aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="aboutme.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="projects.html">Projects</a>
+            </nav>
+        </div>
+    </header>
+    <main class="page-width">
+        <div class="hero">
+            <p class="eyebrow">Student portfolio</p>
+            <h1>Classes</h1>
+            <span class="tagline">Current and Future</span>
+        </div>
+        <div class="content-grid">
+        <section id="about">
+            <h2>About my knowledge</h2>
+            <p> This page includes my past and current classes, as well as what i have scheduled for the upcoming terms!</p>
+        </section>
+        <section id="classes">
+            <h2>Past and Current:</h2>
+             <ul>
+                <li>Finished- Computing Logic</li>
+                <li>Finished- College Algebra</li>
+                <li>Finished -Public Speaking</li>
+                <li>In Progress- Web Site Development</li>
+                <li>In Progress- Psychology</li>
+            </ul>
+        </section>
+        <section id="contact" class="wide">
+            <h2>Upcoming.</h2>
+            <p>These are classes that i plan to take in the upcoming terms.</p>
+            <ul>
+                <li>Upcoming- Software Development</li>
+                <li>Upcoming- Applied AI Technologies</li>
+                <li>Upcoming- Informatics Fundamentals.</li>
+            </ul>
+        </section>
+        </div>
+    </main>
+    <footer class="page-width">Thanks for stopping by — this portfolio is a work in progress.</footer>
+</body>
+</html>
